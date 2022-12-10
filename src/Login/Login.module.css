@@ -1,0 +1,132 @@
+
+.loginForm {
+    width: 413px;
+    height: 552px;
+    padding: 35px 33px 0;
+    box-shadow: 0 0 3px #ccc;
+    font-family: montserrat, sans-serif;
+    background-color: white;
+}
+
+.showPassword {
+    top: 10px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+}
+
+.showPassword:hover {
+    opacity: 0.9;
+}
+
+
+.title {
+    text-align: center;
+    margin: 0 0 41px 0;
+    font-weight: 600;
+}
+
+.formGroup {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.formLabel {
+    color: #9e9e9e;
+}
+
+.formInput {
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #e0e0e0;
+    background-color: transparent;
+    outline: none;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.formInput:focus {
+    border-bottom: 2px solid #1a73a8;
+}
+
+.formButton {
+    width: 100%;
+    border-radius: 32px;
+    border: none;
+    height: 36px;
+    color: white;
+    background-color: #366EFF;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), -1px -1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 69px;
+}
+
+.formButton:disabled {
+    opacity: 0.5;
+}
+
+.formButton:focus,
+.formButton:hover {
+    background-color: rgba(0, 113, 250, 0.9);
+}
+
+.passRecovery {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    margin-top: 29px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    transition: 0.3s;
+}
+.passRecovery:hover{
+    color: #366EFF;
+}
+
+.question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: 600;
+    opacity: 0.5;
+    margin-top: 31px;
+}
+
+.signUpLink {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #366EFF;
+    font-weight: 600;
+    margin-top: 11px;
+    transition: 0.3s;
+}
+
+.signUpLink:hover {
+    color:royalblue;
+}
+
+.error {
+    font-size: 13px;
+    font-weight: bold;
+    color: red;
+    opacity: 0.8;
+    height: 15px;
+}
+p{
+    display: inline-block;
+}
+
+.checkboxText{
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
