@@ -43,14 +43,17 @@ export const Login = () => {
       </div>
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Password</label>
+
         <input
           className={classes.formInput}
           type={!showPassword ? "password" : "text"}
           {...register("Password")}
         />
-        <a href={"#"} className={classes.showPassword}>
-          <EyeIcon onClick={() => setShowPassword(!showPassword)} />
-        </a>
+        <EyeIcon
+          className={classes.showPassword}
+          onClick={() => setShowPassword(!showPassword)}
+        />
+
         <div className={classes.error}>
           {errors?.Password && <p>{errors?.Password.message}</p>}
         </div>
@@ -63,6 +66,7 @@ export const Login = () => {
       <button className={classes.formButton} disabled={!isValid}>
         Sing in
       </button>
+
       <span className={classes.question}>Already have an account?</span>
       <a className={classes.signUpLink} href="#">
         Sign Up
