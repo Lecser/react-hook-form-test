@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, InputHTMLAttributes } from "react";
+import { FC, forwardRef, InputHTMLAttributes } from "react";
 import styled, { css } from "styled-components";
 import { ReactComponent as EyeIcon } from "../assets/Eye.svg";
 import { ReactComponent as SearchIcon } from "../assets/searchIcon.svg";
@@ -65,8 +65,9 @@ const StyledShowSearchIcon = styled(SearchIcon)`
 export const TextField: FC<TextFieldProps> = forwardRef<
   HTMLInputElement,
   TextFieldProps
->(({ showPassword, textFieldMode, ...restProps }, ref) => {
+>(({ showPassword, textFieldMode, onChange, ...restProps }, ref) => {
   const fieldMode = textFieldMode === "outlined";
+
   return (
     <>
       <StyledInput ref={ref} changeInputView={!fieldMode} {...restProps} />
