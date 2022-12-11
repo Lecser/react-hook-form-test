@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import classes from "./Login.module.css";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ReactComponent as EyeIcon } from "../assets/Eye.svg";
@@ -30,6 +30,7 @@ export const Login = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={classes.loginForm}>
       <h1 className={classes.title}>Sing in</h1>
+
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Email</label>
         <input
@@ -43,7 +44,6 @@ export const Login = () => {
       </div>
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Password</label>
-
         <input
           className={classes.formInput}
           type={!showPassword ? "password" : "text"}
