@@ -34,6 +34,7 @@ export const Login = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Email</label>
         <Controller
+          defaultValue={""}
           name={"Email"}
           control={control}
           render={({ field }) => (
@@ -47,6 +48,7 @@ export const Login = () => {
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Password</label>
         <Controller
+          defaultValue={""}
           name={"Password"}
           control={control}
           render={({ field }) => (
@@ -70,7 +72,6 @@ export const Login = () => {
       <button className={classes.formButton} disabled={!isValid}>
         Sing in
       </button>
-
       <span className={classes.question}>Already have an account?</span>
       <a className={classes.signUpLink} href="#">
         Sign Up

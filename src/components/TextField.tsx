@@ -65,7 +65,7 @@ const StyledShowSearchIcon = styled(SearchIcon)`
 export const TextField: FC<TextFieldProps> = forwardRef<
   HTMLInputElement,
   TextFieldProps
->(({ showPassword, textFieldMode, onChange, ...restProps }, ref) => {
+>(({ showPassword, textFieldMode, ...restProps }, ref) => {
   const fieldMode = textFieldMode === "outlined";
 
   return (
