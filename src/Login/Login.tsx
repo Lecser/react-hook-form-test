@@ -1,9 +1,9 @@
 import { useState } from "react";
 import classes from "./Login.module.css";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { ReactComponent as EyeIcon } from "../assets/Eye.svg";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "../schemas/loginValidation";
+import { TextField } from "../components/TextField";
 
 type LoginFormType = {
   Email: string;
@@ -18,6 +18,7 @@ export const Login = () => {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isValid },
   } = useForm<LoginFormType>({
     mode: "onBlur",
@@ -32,10 +33,12 @@ export const Login = () => {
       <h1 className={classes.title}>Sing in</h1>
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Email</label>
-        <input
-          className={classes.formInput}
-          type={"email"}
-          {...register("Email")}
+        <Controller
+          name={"Email"}
+          control={control}
+          render={({ field }) => (
+            <TextField textFieldMode={"nonOutlined"} {...field} />
+          )}
         />
         <div className={classes.error}>
           {errors?.Email && <p>{errors?.Email.message}</p>}
@@ -43,16 +46,18 @@ export const Login = () => {
       </div>
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Password</label>
-        <input
-          className={classes.formInput}
-          type={!showPassword ? "password" : "text"}
-          {...register("Password")}
+        <Controller
+          name={"Password"}
+          control={control}
+          render={({ field }) => (
+            <TextField
+              type={!showPassword ? "password" : "text"}
+              onClick={() => setShowPassword(!showPassword)}
+              textFieldMode={"nonOutlined"}
+              {...field}
+            />
+          )}
         />
-        <EyeIcon
-          className={classes.showPassword}
-          onClick={() => setShowPassword(!showPassword)}
-        />
-
         <div className={classes.error}>
           {errors?.Password && <p>{errors?.Password.message}</p>}
         </div>

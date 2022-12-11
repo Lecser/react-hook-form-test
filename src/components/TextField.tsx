@@ -1,7 +1,8 @@
-import { FC, InputHTMLAttributes } from "react";
+import React, { FC, forwardRef, InputHTMLAttributes } from "react";
 import styled, { css } from "styled-components";
 import { ReactComponent as EyeIcon } from "../assets/Eye.svg";
 import { ReactComponent as SearchIcon } from "../assets/searchIcon.svg";
+
 interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   showPassword?: () => void;
   textFieldMode: "outlined" | "nonOutlined";
@@ -31,11 +32,9 @@ const StyledInput = styled.input<StyledInputProps>`
   ${(props) =>
     props.changeInputView &&
     css`
-      width: 100%;
       border: none;
       border-bottom: 2px solid #e0e0e0;
       padding-left: 0;
-
       &:focus {
         outline: none;
         border: none;
@@ -63,17 +62,16 @@ const StyledShowSearchIcon = styled(SearchIcon)`
   opacity: 0.5;
 `;
 
-export const TextField: FC<TextFieldProps> = ({
-  showPassword,
-  textFieldMode,
-  ...restProps
-}) => {
+export const TextField: FC<TextFieldProps> = forwardRef<
+  HTMLInputElement,
+  TextFieldProps
+>(({ showPassword, textFieldMode, ...restProps }, ref) => {
   const fieldMode = textFieldMode === "outlined";
   return (
     <>
-      <StyledInput changeInputView={!fieldMode} {...restProps} />
+      <StyledInput ref={ref} changeInputView={!fieldMode} {...restProps} />
       {showPassword ? <StyledShowPasswordIcon onClick={showPassword} /> : ""}
       {fieldMode && <StyledShowSearchIcon />}
     </>
   );
-};
+});
