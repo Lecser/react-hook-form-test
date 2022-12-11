@@ -30,7 +30,6 @@ export const Login = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={classes.loginForm}>
       <h1 className={classes.title}>Sing in</h1>
-
       <div className={classes.formGroup}>
         <label className={classes.formLabel}>Email</label>
         <input
