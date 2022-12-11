@@ -8,7 +8,7 @@ interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 interface StyledInputProps {
-  nonOutlined?: boolean;
+  changeInputView?: boolean;
 }
 
 const StyledInput = styled.input<StyledInputProps>`
@@ -27,7 +27,7 @@ const StyledInput = styled.input<StyledInputProps>`
   }
 
   ${(props) =>
-    props.nonOutlined &&
+    props.changeInputView &&
     css`
       border: none;
       border-bottom: 2px solid #e0e0e0;
@@ -58,7 +58,7 @@ export const TextField: FC<TextFieldProps> = ({
   return (
     <div>
       <StyledInput
-        nonOutlined={textFieldMode === "nonOutlined"}
+        changeInputView={textFieldMode === "nonOutlined"}
         {...restProps}
       />
       {showPassword ? <StyledShowPasswordIcon onClick={showPassword} /> : ""}
